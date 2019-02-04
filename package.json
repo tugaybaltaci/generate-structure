@@ -1,0 +1,13 @@
+{
+  "name": "create-template",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/tugaybaltaci/create-template.git",
+  "author": "Tugay Baltacı <tugaybaltaci@gmail.com>",
+  "license": "GNU GPLv3",
+  "private": true,
+  "devDependencies": {
+    "dom-parser": "^0.1.5",
+    "mocha": "^5.2.0"
+  }
+}
