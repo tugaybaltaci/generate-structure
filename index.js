@@ -1,9 +1,7 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
-const parser = require('dom-parser');
+const Schema = require('./core/Schema');
 
-function CreateTemplate() {}
+const tpl = new Schema('./templates/test.scml', 'component-name');
 
-CreateTemplate.prototype.parse = function(markup) {};
-CreateTemplate.prototype.evaluate = function(script) {};
+tpl.createAll();

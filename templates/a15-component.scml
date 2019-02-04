@@ -1,0 +1,35 @@
+<schema output="src/scss/components/c-%name%">
+  <file name="_c-%name%.scss">
+    // %capName%
+    //
+    // Markup: c-%name%-styleguide.twig
+    //
+    // Styleguide Components.%capName%
+
+    .c-%name% {
+      display: block;
+    }
+  </file>
+
+  <file name="c-%name%-styleguide.twig">
+    {% include "c-%name%.twig" with {} only %}
+  </file>
+
+  <file name="c-%name%.twig">
+    <div class="c-%name%">
+      Generated Component
+    </div>
+  </file>
+
+  <script>
+    const {getVariable, passVariable} = Schema;
+    const name = getVariable('name');
+
+    const capName = name
+      .split('-')
+      .map(x => x.charAt(0).toUpperCase() + x.slice(1))
+      .join('');
+
+    passVariable('capName', capName);
+  </script>
+</schema>
