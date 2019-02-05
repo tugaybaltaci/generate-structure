@@ -1,2 +1,4 @@
 
-function Script(code) {}
+class Script {
+  constructor(code) {}
+}

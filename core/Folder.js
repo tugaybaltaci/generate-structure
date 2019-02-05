@@ -1,2 +1,3 @@
-
-function Folder(name) {}
+class Folder {
+  constructor(name) {}
+}

@@ -1,2 +1,3 @@
-
-function File(name, content) {}
+class File {
+  constructor(name, content) {}
+}
