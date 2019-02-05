@@ -1,4 +1,4 @@
-<schema output="src/scss/components/c-%name%">
+<structure output="src/scss/components/c-%name%" variable-ref="%$%">
   <file name="_c-%name%.scss">
     // %capName%
     //
@@ -22,7 +22,7 @@
   </file>
 
   <script>
-    const {getVariable, passVariable} = Schema;
+    const {getVariable, passVariable} = Structure;
     const name = getVariable('name');
 
     const capName = name
@@ -32,4 +32,4 @@
 
     passVariable('capName', capName);
   </script>
-</schema>
+</structure>
