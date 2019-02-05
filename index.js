@@ -1,7 +1,12 @@
 #!/usr/bin/env node
 
-const Schema = require('./core/Schema');
+const Structure = require('./core/Structure');
 
-const tpl = new Schema('./templates/a15-component.scml', 'component-name');
+try {
+  const tpl = new Structure('./templates/a15-component.scml', 'component-name', {
+    date: '28-08-1994',
+  });
+} catch(err) {
+  console.log(err);
+}
 
-tpl.createAll();
