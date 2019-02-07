@@ -1,3 +1,0 @@
-class Folder {
-  constructor(name) {}
-}

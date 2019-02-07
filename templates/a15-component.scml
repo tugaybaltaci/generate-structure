@@ -1,4 +1,4 @@
-<structure output="src/scss/components/c-%name%" variable-ref="%$%">
+<structure out="src/scss/components/c-%name%">
   <file name="_c-%name%.scss">
     // %capName%
     //

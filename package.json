@@ -7,8 +7,8 @@
   "license": "ISC",
   "private": true,
   "devDependencies": {
-    "dom-parser": "^0.1.5",
     "mocha": "^5.2.0",
+    "node-html-parser": "^1.1.12",
     "shelljs": "^0.8.3"
   },
   "scripts": {

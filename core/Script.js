@@ -1,4 +1,0 @@
-
-class Script {
-  constructor(code) {}
-}
