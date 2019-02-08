@@ -1,5 +1,3 @@
-const shell = require('shelljs');
-
 class File {
 
   constructor(content) {

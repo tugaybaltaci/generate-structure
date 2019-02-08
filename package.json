@@ -7,11 +7,12 @@
   "license": "ISC",
   "private": true,
   "devDependencies": {
+    "command-line-args": "^5.0.2",
     "mocha": "^5.2.0",
     "node-html-parser": "^1.1.12",
     "shelljs": "^0.8.3"
   },
   "scripts": {
-    "create": "node index.js"
+    "generate-structure": "node index.js"
   }
 }
