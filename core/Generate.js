@@ -38,9 +38,7 @@ class Generate {
 
     this.structure = root.querySelector('structure');
 
-    this.outputDirectory = this.applyVariables(this.structure.attributes.out);
-    if (!this.outputDirectory) this.outputDirectory = '.';
-
+    // Scripts should execute first because apply variables correctly.
     this.scripts = this.structure.querySelectorAll('script').map(item => {
       const Structure = {
         getVariable: (name) => {
@@ -53,8 +51,12 @@ class Generate {
 
       eval(item.innerHTML);
 
-      return item.innerHTML;
+      return item;
     });
+
+
+    this.outputDirectory = this.applyVariables(this.structure.attributes.out);
+    if (!this.outputDirectory) this.outputDirectory = '.';
 
     this.files = this.structure.querySelectorAll('file').map(item => {
       if (!item.attributes.name) return;
