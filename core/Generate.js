@@ -59,21 +59,10 @@ class Generate {
       .querySelectorAll('file')
       .filter(item => !!item.attributes.name)
       .map(item => {
-        const file = new File(item.innerHTML);
+        const file = new File(this.applyVariables(item.innerHTML));
         file.save(this.applyVariables(item.attributes.name));
         return file;
       });
-  }
-
-  applyVariables(content) {
-    let contentWithVariables = content;
-    for (const variable in this.variables) {
-      contentWithVariables = contentWithVariables.replace(
-        new RegExp(this.variableTemplate.replace('var', variable), 'gi'),
-        this.variables[variable],
-      );
-    }
-    return contentWithVariables;
   }
 
   createFiles() {
@@ -95,6 +84,17 @@ class Generate {
         });
       }
     });
+  }
+
+  applyVariables(content) {
+    let contentWithVariables = content;
+    for (const variable in this.variables) {
+      contentWithVariables = contentWithVariables.replace(
+        new RegExp(this.variableTemplate.replace('var', variable), 'gi'),
+        this.variables[variable],
+      );
+    }
+    return contentWithVariables;
   }
 
   async run() {
