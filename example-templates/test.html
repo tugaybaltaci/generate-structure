@@ -5,6 +5,7 @@
       return "test ok"
     }
   </file>
+
   <file name="%name%.css">
     /* This is a css file */
     .%name%Class {
@@ -27,9 +28,12 @@
 
   <file name="README.md">
     ## Read Me
+
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, culpa beatae eius porro voluptatibus illo. Alias, minima quaerat repellat, qui doloribus non, tenetur in deserunt inventore itaque et sapiente a.
     Test
+    
     ---
+
     Test here
   </file>
 
@@ -46,7 +50,7 @@
   </file>
 
   <script>
-    const {name, getVariable, setVariable} = StructureGenerator;
+    const { name, getVariable, setVariable } = GenerateStructure;
     const capName = name.split('-').map(x => x.charAt(0).toUpperCase() + x.slice(1)).join('');
 
     // Now you can use this variable in your
