@@ -1,13 +1,12 @@
 #!/usr/bin/env node
 
 const cli = require("command-line-args");
-const Generate = require("./core/Generate");
+const GenerateStructure = require("./core/Generator");
 
 const options = cli([
   { name: "name", type: String, defaultOption: true },
-  { name: "template", type: String, alias: "t" }
+  { name: "templatePath", type: String, alias: "t" }
 ]);
 
-const structure = new Generate(options.name, options.template);
-
+const structure = new GenerateStructure(options.name, options.template);
 structure.run();
