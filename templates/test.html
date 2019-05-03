@@ -1,24 +1,24 @@
 <structure out="test">
   <file name="%name%.js">
     // This is a js file.
-    function testFunc() {
+    function %name%Func() {
       return "test ok"
     }
   </file>
   <file name="%name%.css">
     /* This is a css file */
-    .testClass {
+    .%name%Class {
       test: ok;
     }
   </file>
 
   <file name="%name%.html">
     <!-- This is an html file. I hope that will be included in output. -->
-    <div class="testClass" onload="testFunc();">
+    <div class="%name%Class" onload="%name%Func();">
       <h1>Hello world. This is an html file that includes test content.</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab mollitia quis voluptatum molestiae, animi molestias aut. Cum dignissimos maxime minima tempora. Asperiores dolor ipsam modi aliquid ea nobis blanditiis sint?</p>
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo officiis odit harum, reiciendis qui quo ad commodi. Mollitia quos saepe voluptas, aut ipsum molestias reprehenderit expedita. Fuga neque quasi corporis.</p>
-      <img src="test" alt="test">
+      <img src="%name%.png" alt="%name%">
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores officia magni error earum sequi, optio voluptatem amet corporis impedit quo quidem voluptate accusamus laudantium sint quibusdam inventore nobis minima illum?</p>
     </div>
   </file>
