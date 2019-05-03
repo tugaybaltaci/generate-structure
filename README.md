@@ -9,7 +9,9 @@ Note: This repository still work in progress.
 Firstly, you have to create a template file for define your code templates.
 
 ### Structure
-`structure` tag accept one attribute for now. It is `out` attribute which is define root folder of structure. 
+
+`structure` tag accept single attribute for now.
+It is `out` attribute which is define root folder of structure. 
 
 ```html
 <structure out="test/%name%-component">
@@ -19,7 +21,7 @@ Firstly, you have to create a template file for define your code templates.
 
 ### Files
 
-Either `file` tag accepts one attribute. `name` attribute defines file name and either you can use variables in.
+Either `file` tag accept single attribute which is `name`.  `name` attribute defines file name and you can use variables in.
 
 ```html
   <file name="%name%.js">
@@ -35,14 +37,15 @@ Either `file` tag accepts one attribute. `name` attribute defines file name and 
     }
   </file>
 ```
+
 ### Scripting
+
 Scripts are executes before creating files. It is executes once and set all variables instead of execute for each files.
 
 `Structure` class has 3 properties. 
 - `name`: Refers defined file name 
 - `getVariable`: Brings the variable by given name
 - `setVariable`: Defines a variable according to given key and value
-
 
 ```html
   <script>
