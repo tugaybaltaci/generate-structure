@@ -1,15 +1,15 @@
 /* eslint-disable */
 
-const fs = require('fs');
-const shell = require('shelljs');
-const HTMLParser = require('node-html-parser');
+const fs = require("fs");
+const shell = require("shelljs");
 
-const File = require('./File');
+const Parser = require("./Parser");
+const File = require("./File");
 
 class Generate {
   constructor(name, template, variables = {}) {
     this.variables = { ...variables, name };
-    this.variableTemplate = '%var%';
+    this.variableTemplate = "%var%";
     this.outputDirectory = null;
 
     this.templatePath = `${__dirname}/../templates/${template}.html`;
@@ -20,63 +20,65 @@ class Generate {
   }
 
   async readTemplate() {
-    if (!shell.test('-e', this.templatePath)) {
+    if (!shell.test("-e", this.templatePath)) {
       console.log(`Template file not found on '${this.templatePath}'`);
       return false;
     }
-    this.template = await fs.readFileSync(this.templatePath, { encoding: 'utf8' });
-
-    return this.template;
+    this.template = await fs.readFileSync(this.templatePath, {
+      encoding: "utf8"
+    });
   }
 
   parseTemplate() {
     if (!this.template) return;
 
-    const root = HTMLParser.parse(this.template, {
-      script: true,
-    });
+    const parser = new Parser(this.template);
 
-    this.structure = root.querySelector('structure');
+    this.files = parser.dom.files;
 
-    // Scripts should execute first because apply variables correctly.
-    this.scripts = this.structure.querySelectorAll('script').map(item => {
+    this.scripts = parser.dom.scripts.map(item => {
       const Structure = {
         getVariable: name => this.variables[name],
-        passVariable: (name, value) => {
+        setVariable: (name, value) => {
           this.variables[name] = value;
         },
+        name: this.variables.name
       };
 
-      eval(item.innerHTML);
+      eval(item.content);
 
       return item;
     });
 
-    this.outputDirectory = this.applyVariables(this.structure.attributes.out);
-    if (!this.outputDirectory) this.outputDirectory = '.';
+    this.outputDirectory = this.applyVariables(
+      parser.dom.structure.attributes.out
+    );
+    if (!this.outputDirectory) this.outputDirectory = ".";
 
-    this.files = this.structure
-      .querySelectorAll('file')
+    this.files = parser.dom.files
       .filter(item => !!item.attributes.name)
       .map(item => {
-        const file = new File(this.applyVariables(item.innerHTML));
+        const content = this.applyVariables(item.content);
+        const file = new File(content);
         file.save(this.applyVariables(item.attributes.name));
         return file;
       });
   }
 
   createFiles() {
-    if (!shell.test('-e', this.outputDirectory)) {
-      console.log(`Directory '${this.outputDirectory}' doesn't exist. Creating...`);
-      shell.mkdir('-p', this.outputDirectory);
+    if (!shell.test("-e", this.outputDirectory)) {
+      console.log(
+        `Directory '${this.outputDirectory}' doesn't exist. Creating...`
+      );
+      shell.mkdir("-p", this.outputDirectory);
     }
 
     const output = name => `${this.outputDirectory}/${name}`;
 
-    this.files.map(file => {
+    this.files.forEach(file => {
       const out = output(file.name);
 
-      if (shell.test('-e', out)) {
+      if (shell.test("-e", out)) {
         console.log(`File '${file.name}' already exists. Skipped.`);
       } else {
         fs.writeFile(out, file.content, err => {
@@ -90,8 +92,8 @@ class Generate {
     let contentWithVariables = content;
     for (const variable in this.variables) {
       contentWithVariables = contentWithVariables.replace(
-        new RegExp(this.variableTemplate.replace('var', variable), 'gi'),
-        this.variables[variable],
+        new RegExp(this.variableTemplate.replace("var", variable), "gi"),
+        this.variables[variable]
       );
     }
     return contentWithVariables;

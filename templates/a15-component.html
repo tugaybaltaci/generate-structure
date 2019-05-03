@@ -5,7 +5,7 @@
     // Markup: c-%name%-styleguide.twig
     //
     // Styleguide Components.%capName%
-
+  
     .c-%name% {
       display: block;
     }
@@ -25,11 +25,8 @@
     const {getVariable, passVariable} = Structure;
     const name = getVariable('name');
 
-    const capName = name
-      .split('-')
-      .map(x => x.charAt(0).toUpperCase() + x.slice(1))
-      .join('');
+    const capName = name.split('-').map(x => x.charAt(0).toUpperCase() + x.slice(1)).join('');
 
-    passVariable('capName', capName);
+    setVariable('capName', capName);
   </script>
 </structure>
