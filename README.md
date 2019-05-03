@@ -1,12 +1,11 @@
 # Structure Generator
 
-Structure generator helps you to create multiple code templates that using continuously in your projects.
+Structure generator helps you create multiple code templates that using continuously in your projects.
 
-Note: This repository still work in progress.
+Note: This repository is still work in progress.
 
 ## Usage
-
-Firstly, you have to create a template file for define your code templates.
+Firstly, you have to create a template file to define your code templates.
 
 ### Structure
 
@@ -52,17 +51,18 @@ Either `file` tag accept single attribute which is `name`.  `name` attribute def
 
 ### Scripting
 
-Scripts are executes before creating files. It is executes once and set all variables instead of execute for each files.
+Scripts are executed before creating files. It executes once and set all variables instead of executing for each file.
 
-`Structure` class has 3 properties. 
+`Structure` object has 3 properties.
 - `name`: Refers defined file name 
 - `getVariable`: Brings the variable by given name
 - `setVariable`: Defines a variable according to given key and value
 
 ```html
   <script>
-    // You can reach `Structure` object in that script tag and pass new variables into templates. These variables can use in everywhere of template including filename
-    const {name, getVariable, setVariable} = Structure;
+    // You can reach `StructureGenerator` object in that `script` tag and pass new variables into templates.
+    // These variables can use in everywhere of template including filename.
+    const {name, getVariable, setVariable} = StructureGenerator;
     const capName = name.split('-').map(x => x.charAt(0).toUpperCase() + x.slice(1)).join('');
 
     // Now you can use this variable in your
