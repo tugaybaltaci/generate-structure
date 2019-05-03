@@ -7,9 +7,15 @@ Note: This repository is still work in progress.
 ## Install
 ---
 
+npm
+
 ```
 npm install generate-structure
---
+```
+
+yarn
+
+```
 yarn add generate-structure
 ```
 
