@@ -7,16 +7,23 @@ const Parser = require("./Parser");
 const File = require("./File");
 
 class Generator {
-  constructor(name, template, variables = {}) {
-    this.variables = { ...variables, name };
-    this.variableTemplate = "%var%";
-    this.outputDirectory = null;
+  constructor(name, templatePath, variables = {}, options = {}) {
+    const defaults = {
+      variableTemplate: "%var%",
+      ...options
+    };
 
-    this.templatePath = `${__dirname}/../templates/${template}.html`;
+    this.variables = { ...variables, name };
+    this.variableTemplate = defaults.variableTemplate;
+
+    this.outputDirectory = null;
+    this.templatePath = templatePath;
+
     this.template = null;
 
     this.structure = null;
     this.files = [];
+    this.scripts = [];
   }
 
   async readTemplate() {
@@ -32,12 +39,12 @@ class Generator {
   parseTemplate() {
     if (!this.template) return;
 
-    const parser = new Parser(this.template);
+    const template = new Parser(this.template, true);
 
-    this.files = parser.dom.files;
+    this.files = template.root.files;
 
-    this.scripts = parser.dom.scripts.map(item => {
-      const Structure = {
+    this.scripts = template.root.scripts.map(item => {
+      const StructureGenerator = {
         getVariable: name => this.variables[name],
         setVariable: (name, value) => {
           this.variables[name] = value;
@@ -51,11 +58,12 @@ class Generator {
     });
 
     this.outputDirectory = this.applyVariables(
-      parser.dom.structure.attributes.out
+      template.root.structure.attributes.out
     );
+
     if (!this.outputDirectory) this.outputDirectory = ".";
 
-    this.files = parser.dom.files
+    this.files = template.root.files
       .filter(item => !!item.attributes.name)
       .map(item => {
         const content = this.applyVariables(item.content);
@@ -70,6 +78,7 @@ class Generator {
       console.log(
         `Directory '${this.outputDirectory}' doesn't exist. Creating...`
       );
+
       shell.mkdir("-p", this.outputDirectory);
     }
 
@@ -106,4 +115,4 @@ class Generator {
   }
 }
 
-module.exports = Generate;
+module.exports = Generator;

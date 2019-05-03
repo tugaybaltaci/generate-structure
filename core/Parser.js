@@ -1,9 +1,9 @@
 class Parser {
-  constructor(content) {
+  constructor(content, autorun = false) {
     this.content = content;
-    this.dom = {};
+    this.root = {};
 
-    this.buildDOM();
+    if (autorun) this.buildDOM();
   }
 
   buildDOM() {
@@ -38,7 +38,7 @@ class Parser {
       }
     });
 
-    this.dom = root;
+    this.root = root;
 
     return root;
   }
