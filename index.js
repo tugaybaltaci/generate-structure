@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-const Generate = require("./core/Generate");
+const GenerateStructure = require("./core/Generate");
 
-module.exports = Generate;
+module.exports = GenerateStructure;
