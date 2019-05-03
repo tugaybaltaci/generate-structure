@@ -2,7 +2,7 @@
   "name": "generate-structure",
   "version": "0.1.0",
   "main": "index.js",
-  "repository": "https://github.com/tugaybaltaci/create-template.git",
+  "repository": "https://github.com/tugaybaltaci/generate-structure.git",
   "author": "Tugay Baltacı <tugaybaltaci@gmail.com>",
   "license": "ISC",
   "private": true,
