@@ -6,7 +6,7 @@ const shell = require("shelljs");
 const Parser = require("./Parser");
 const File = require("./File");
 
-class Generate {
+class Generator {
   constructor(name, template, variables = {}) {
     this.variables = { ...variables, name };
     this.variableTemplate = "%var%";
