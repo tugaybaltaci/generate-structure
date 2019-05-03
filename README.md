@@ -84,7 +84,7 @@ Scripts are executed before creating files. It executes once and set all variabl
 
 `StructureGenerator` object has 3 properties.
 
-| | |
+| variable | description |
 |-|-|
 | `name` | Represents file name
 | `getVariable` | Brings the variable by given name
@@ -105,8 +105,8 @@ Scripts are executed before creating files. It executes once and set all variabl
 ```
 
 ## Dependencies
-| | |
-|-|-|
+| package | version | description |
+|-|-|-|
 | "command-line-args" | ^5.0.2 | For use cli tool, I'm still working on.
 | "shelljs" | ^0.8.3 | For creating and modifying files or folders.
 
