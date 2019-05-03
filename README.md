@@ -18,7 +18,10 @@ yarn add generate-structure
 First you need to create template file. You can find instructions below.
 
 ```js
+const GenerateStructure = require('generate-structure');
+
 const generator = new GenerateStructure("test", "example-templates/test.html");
+
 generator.run();
 ```
 
