@@ -29,12 +29,15 @@ class Generator {
 
   async readTemplate() {
     if (!shell.test("-e", this.templatePath)) {
-      console.log(`Template file not found on '${this.templatePath}'`);
+      console.log(`Template file not found at '${this.templatePath}'`);
       return false;
     }
+
     this.template = await fs.readFileSync(this.templatePath, {
       encoding: "utf8"
     });
+
+    return true;
   }
 
   parseTemplate() {
@@ -65,17 +68,18 @@ class Generator {
       });
   }
 
-  evaluateScript(code = "") {
-    const StructureGenerator = {
+  async evaluateScript(code = "") {
+    const GenerateStructure = {
+      name: this.variables.name,
       getVariable: name => this.variables[name],
       setVariable: (name, value) => {
         this.variables[name] = value;
-      },
-      name: this.variables.name
+      }
     };
 
     const sandbox = {
-      StructureGenerator
+      GenerateStructure,
+      console
     };
 
     vm.createContext(sandbox);
