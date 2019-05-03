@@ -1,6 +1,7 @@
 /* eslint-disable */
 
 const fs = require("fs");
+const vm = require("vm");
 const shell = require("shelljs");
 
 const Parser = require("./Parser");
@@ -44,16 +45,7 @@ class Generator {
     this.files = template.root.files;
 
     this.scripts = template.root.scripts.map(item => {
-      const StructureGenerator = {
-        getVariable: name => this.variables[name],
-        setVariable: (name, value) => {
-          this.variables[name] = value;
-        },
-        name: this.variables.name
-      };
-
-      eval(item.content);
-
+      this.evaluateScript(item.content);
       return item;
     });
 
@@ -71,6 +63,23 @@ class Generator {
         file.save(this.applyVariables(item.attributes.name));
         return file;
       });
+  }
+
+  evaluateScript(code = "") {
+    const StructureGenerator = {
+      getVariable: name => this.variables[name],
+      setVariable: (name, value) => {
+        this.variables[name] = value;
+      },
+      name: this.variables.name
+    };
+
+    const sandbox = {
+      StructureGenerator
+    };
+
+    vm.createContext(sandbox);
+    vm.runInContext(code, sandbox);
   }
 
   createFiles() {
