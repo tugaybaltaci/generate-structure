@@ -33,8 +33,20 @@ Either `file` tag accept single attribute which is `name`.  `name` attribute def
   <file name="%name%.css">
     /* This is a css file */
     .%name%Class {
-      test: ok;
+      /* your css */
     }
+  </file>
+
+  <file name="%name%.html">
+    <!-- This is an html file. I hope that will be included in output. -->
+    <div class="%name%Class" onload="%name%Func();">
+      <h1>Hello world.</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab mollitia quis voluptatum molestiae, animi molestias aut. Cum dignissimos maxime minima tempora. Asperiores dolor ipsam modi aliquid ea nobis blanditiis sint?</p>
+      <img src="%name%.png" alt="%name%">
+      <p>
+      
+      </p>
+    </div>
   </file>
 ```
 
