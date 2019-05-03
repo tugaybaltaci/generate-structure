@@ -1,0 +1,56 @@
+<structure out="test">
+  <file name="%name%.js">
+    // This is a js file.
+    function %name%Func() {
+      return "test ok"
+    }
+  </file>
+  <file name="%name%.css">
+    /* This is a css file */
+    .%name%Class {
+      /* your css */
+    }
+  </file>
+
+  <file name="%name%.html">
+    <!-- This is an html file. I hope that will be included in output. -->
+    <div class="%name%Class" onload="%name%Func();">
+      <h1>Hello world. This is an html file that includes test content.</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab mollitia quis voluptatum molestiae, animi molestias aut. Cum dignissimos maxime minima tempora. Asperiores dolor ipsam modi aliquid ea nobis blanditiis sint?</p>
+      <p>Id necessitatibus eum maiores sint alias dolores neque fugit dolor voluptates veniam totam debitis, beatae excepturi vero provident? Quis ratione quae ea eos minus repudiandae, hic animi qui excepturi cum.</p>
+      <img src="%name%.png" alt="%name%">
+      <p>
+        Eius excepturi itaque distinctio explicabo necessitatibus nemo impedit dicta amet, doloremque provident adipisci delectus porro eligendi architecto laudantium enim officiis? Natus quae ducimus dolores necessitatibus excepturi quam asperiores saepe odit?
+      </p>
+    </div>
+  </file>
+
+  <file name="README.md">
+    ## Read Me
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, culpa beatae eius porro voluptatibus illo. Alias, minima quaerat repellat, qui doloribus non, tenetur in deserunt inventore itaque et sapiente a.
+    Test
+    ---
+    Test here
+  </file>
+
+  <file name="%capName%.ts">
+    import React from 'react';
+
+    const %capName%Component = () => {
+      return (
+        <OtherComponent paramOne={variableOne} paramTwo={(variableTwo) => variableThree} />
+      )
+    }
+
+    export default %capName%Component;
+  </file>
+
+  <script>
+    const {name, getVariable, setVariable} = StructureGenerator;
+    const capName = name.split('-').map(x => x.charAt(0).toUpperCase() + x.slice(1)).join('');
+
+    // Now you can use this variable in your
+    // templates or filenames.
+    setVariable('capName', capName);
+  </script>
+</structure>
