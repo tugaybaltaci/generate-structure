@@ -30,14 +30,11 @@ class Generator {
   async readTemplate() {
     if (!shell.test("-e", this.templatePath)) {
       console.log(`Template file not found at '${this.templatePath}'`);
-      return false;
     }
 
     this.template = await fs.readFileSync(this.templatePath, {
       encoding: "utf8"
     });
-
-    return true;
   }
 
   parseTemplate() {
