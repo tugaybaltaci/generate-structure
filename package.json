@@ -1,7 +1,14 @@
 {
   "name": "generate-structure",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "index.js",
+  "keywords": [
+    "generator",
+    "template generator",
+    "structure generator",
+    "code template generator",
+    "code structure generator"
+  ],
   "repository": "https://github.com/tugaybaltaci/generate-structure.git",
   "author": "Tugay Baltacı <tugaybaltaci@gmail.com>",
   "license": "ISC",
