@@ -5,7 +5,6 @@ Structure generator helps you create multiple code templates that using continuo
 Note: This repository is still work in progress.
 
 ## Install
----
 
 npm
 
@@ -20,16 +19,29 @@ yarn add generate-structure
 ```
 
 ## Usage
----
+
 First you need to create template file. You can find instructions below.
 
 ```js
 const GenerateStructure = require('generate-structure');
 
-const generator = new GenerateStructure("test", "example-templates/test.html");
+// GenerateStructure(name: string, templatePath: string, variables: object, options: object)
+const generator = new GenerateStructure("test", "example-templates/test.html", {
+  // variables
+  foo: 'bar'
+}, {
+  // options
+  variableTemplate: '%var%' // `var` is keyword of variable
+});
 
 generator.run();
 ```
+
+| input | output |
+| - | - |
+| ![Input](docs/img/input.png) | ![Input](docs/img/output.png) |
+
+
 
 ## Creating Template
 
@@ -78,7 +90,7 @@ Either `file` tag accept single attribute which is `name`.  `name` attribute def
 
 ### Scripting
 
-StructureGenerator has a simple API that you can create or modify variables.
+`StructureGenerator` has a simple API that you can create or modify variables.
 
 Scripts are executed before creating files. It executes once and set all variables instead of executing for each file.
 
@@ -90,7 +102,7 @@ Scripts are executed before creating files. It executes once and set all variabl
 | `getVariable` | Brings the variable by given name
 | `setVariable` | Defines a variable according to given key and value
 
----
+
 ```html
   <script>
     // You can reach `StructureGenerator` object in that `script` tag and pass new variables into templates.
