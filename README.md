@@ -92,14 +92,20 @@ and run
 $ generate-structure -t [path/to/template.html] [name]
 ```
 
-### Input > Output Table
+## Creating Template
+
+Writing template is very simple. You have 3 tags to create a template.
+
+* `structure`
+* `file`
+* `script`
+
+### What will happend?
 
 | input | output |
 | - | - |
 | ![Input](docs/img/input.png) | ![Input](docs/img/output.png) |
 
-
-## Creating Template
 
 ### Structure
 
@@ -112,7 +118,7 @@ It is `out` attribute which is define root folder of structure.
 </structure>
 ```
 
-### Files
+### File
 
 Either `file` tag accept single attribute which is `name`.  `name` attribute defines file name and you can use variables in.
 
@@ -143,7 +149,7 @@ Either `file` tag accept single attribute which is `name`.  `name` attribute def
   </file>
 ```
 
-### Scripting
+### Script
 
 `StructureGenerator` has a simple API that you can create or modify variables with javascript in `script` tag.
 
