@@ -7,7 +7,9 @@
 
 Structure generator helps you create multiple code templates that using continuously in your projects.
 
-Note: This repository is still work in progress.
+You can create any code template in any language. You just need to have NodeJS.
+
+**Note**: This repository is still work in progress.
 
 ## Install
 
