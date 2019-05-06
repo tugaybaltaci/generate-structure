@@ -72,7 +72,7 @@ via `package.json` scripts
   }
 ```
 
-This will allows you to use command like `yarn generate:component component-name` to create template.
+This allows you to use command like `yarn generate:component component-name` to create template.
 
 #### Using global
 
@@ -110,7 +110,7 @@ Writing template is very simple. You have 3 tags to create a template.
 ### Structure
 
 `structure` tag accepts single attribute for now.
-It is `out` attribute which is define root folder of structure. 
+It is `out` attribute which defines root folder of structure. 
 
 ```html
 <structure out="test/%name%-component">
