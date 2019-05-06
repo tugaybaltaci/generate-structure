@@ -5,7 +5,7 @@
 
 # Structure Generator
 
-Structure generator helps you create multiple code templates that using continuously in your projects.
+Structure generator helps you to create multiple code templates/structures that using continuously in your projects.
 
 Note: This repository is still work in progress.
 
@@ -115,7 +115,9 @@ Either `file` tag accept single attribute which is `name`.  `name` attribute def
 
 ### Scripting
 
-`StructureGenerator` has a simple API that you can create or modify variables.
+`StructureGenerator` has a simple API that you can create or modify variables with javascript in `script` tag.
+
+**Note**: `type` attribute of `script` tag should be `gs/javascript` to work. Otherwise your scripts doesn't execute.
 
 `StructureGenerator` object has 3 properties;
 
@@ -127,7 +129,7 @@ Either `file` tag accept single attribute which is `name`.  `name` attribute def
 
 
 ```html
-  <script>
+  <script type="gs/javascript">
     // You can reach `StructureGenerator` object in that `script` tag and pass new variables into templates.
     // These variables can use in everywhere of template including filename.
 
