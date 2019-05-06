@@ -1,7 +1,7 @@
 [![Dependency Status](https://david-dm.org/tugaybaltaci/generate-structure.svg)](https://david-dm.org/tugaybaltaci/generate-structure)
 [![devDependency Status](https://david-dm.org/tugaybaltaci/generate-structure/dev-status.svg)](https://david-dm.org/tugaybaltaci/generate-structure#info=devDependencies)
 [![npm version](https://badge.fury.io/js/generate-structure.svg)](https://badge.fury.io/js/generate-structure)
-[![Downloads](https://img.shields.io/npm/dm/generate-structure.svg)](https://www.npmjs.com/package/code-structure)
+[![Downloads](https://img.shields.io/npm/dm/generate-structure.svg)](https://www.npmjs.com/package/generate-structure)
 
 # Structure Generator
 
