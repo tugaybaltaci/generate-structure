@@ -29,7 +29,7 @@ yarn add generate-structure
 
 There is several ways to use structure generator.
 
-#### 1. Javascript (NodeJS)
+### 1. Javascript (NodeJS)
 
 Javascript way is allow you to change options like `variableTemplate` or initial variables.
 
@@ -48,36 +48,33 @@ const generator = new GenerateStructure("test", "example-templates/test.html", {
 generator.run();
 ```
 
-#### 2. CLI
+### 2. CLI
 
 If you don't need to change options then you can use CLI tools.
 
-`npx` (you don't need to install)
+#### `npx` (you don't need to install)
 
 ```bash
 $ npx generate-structure [name] -t [templatePath]
 ```
 
-`yarn` (you should install first)
+#### `yarn` (you should install first)
 
 ```bash
 $ yarn generate-structure [name] -t [templatePath]
 ```
 
-`yarn/npm` scripts
+#### `package.json` scripts
+
 ```json
-  ...
   "scripts": {
-    ...
     "generate:component": "npx generate-structure -t path/to/template.html"
-    ...
   }
-  ...
 ```
 
-This will allow you to use command like `yarn generate:component component-name` to create template. If you installed this tool in your project, use `yarn` or `npm` instead of npx.
+This will allow you to use command like `yarn generate:component component-name` to create template. If you installed this tool in your project, use `yarn` or `npm` instead of `npx`.
 
-**Also you can use it global.**
+#### Using global
 
 ```bash
 $ yarn global add generate-structure
@@ -95,13 +92,14 @@ and run
 $ generate-structure -t [path/to/template.html] [name]
 ```
 
+### Input > Output Table
 
 | input | output |
 | - | - |
 | ![Input](docs/img/input.png) | ![Input](docs/img/output.png) |
 
-## Creating Template
 
+## Creating Template
 
 ### Structure
 
