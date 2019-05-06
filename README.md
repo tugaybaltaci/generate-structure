@@ -13,13 +13,13 @@ You can create any code template in any language. You just need to have NodeJS.
 
 ## Install
 
-`npm`
+via npm
 
 ```
 npm install generate-structure
 ```
 
-`yarn`
+via yarn
 
 ```
 yarn add generate-structure
