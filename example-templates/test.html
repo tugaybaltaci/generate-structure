@@ -1,25 +1,22 @@
 <structure out="test">
   <file name="%name%.js">
-    // This is a js file.
     function %name%Func() {
       return "test ok"
     }
   </file>
 
   <file name="%name%.css">
-    /* This is a css file */
-    .%name%Class {
+    .%capName% {
       /* your css */
     }
   </file>
 
   <file name="%name%.html">
-    <!-- This is an html file. I hope that will be included in output. -->
     <div class="%name%Class" onload="%name%Func();">
       <h1>Hello world. This is an html file that includes test content.</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab mollitia quis voluptatum molestiae, animi molestias aut. Cum dignissimos maxime minima tempora. Asperiores dolor ipsam modi aliquid ea nobis blanditiis sint?</p>
       <p>Id necessitatibus eum maiores sint alias dolores neque fugit dolor voluptates veniam totam debitis, beatae excepturi vero provident? Quis ratione quae ea eos minus repudiandae, hic animi qui excepturi cum.</p>
-      <img src="%name%.png" alt="%name%">
+      <img src="%name%.png" alt="%capName% Component">
       <p>
         Eius excepturi itaque distinctio explicabo necessitatibus nemo impedit dicta amet, doloremque provident adipisci delectus porro eligendi architecto laudantium enim officiis? Natus quae ducimus dolores necessitatibus excepturi quam asperiores saepe odit?
       </p>
