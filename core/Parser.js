@@ -33,7 +33,12 @@ class Parser {
           root.files.push(tagObj);
         }
         if (tagName === "script") {
-          root.scripts.push(tagObj);
+          if (
+            tagObj.attributes.type &&
+            tagObj.attributes.type === "gs/javascript"
+          ) {
+            root.scripts.push(tagObj);
+          }
         }
       }
     });

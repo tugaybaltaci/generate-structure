@@ -21,6 +21,12 @@
         Eius excepturi itaque distinctio explicabo necessitatibus nemo impedit dicta amet, doloremque provident adipisci delectus porro eligendi architecto laudantium enim officiis? Natus quae ducimus dolores necessitatibus excepturi quam asperiores saepe odit?
       </p>
     </div>
+
+    <script src="//code.jquery.com/jquery-latest.js">
+      $('htm').on('load', () => {
+        console.log('hi kid');
+      })
+    </script>
   </file>
 
   <file name="README.md">
@@ -46,7 +52,7 @@
     export default %capName%Component;
   </file>
 
-  <script>
+  <script type="gs/javascript">
     const { name, getVariable, setVariable } = GenerateStructure;
     const capName = name.split('-').map(x => x.charAt(0).toUpperCase() + x.slice(1)).join('');
 
