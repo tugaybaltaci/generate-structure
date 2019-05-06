@@ -64,11 +64,41 @@ $ npx generate-structure [name] -t [templatePath]
 $ yarn generate-structure [name] -t [templatePath]
 ```
 
+`yarn/npm` scripts
+```json
+  ...
+  "scripts": {
+    ...
+    "generate:component": "npx generate-structure -t path/to/template.html"
+    ...
+  }
+  ...
+```
+
+This will allow you to use command like `yarn generate:component component-name` to create template. If you installed this tool in your project, use `yarn` or `npm` instead of npx.
+
+**Also you can use it global.**
+
+```bash
+$ yarn global add generate-structure
+```
+
+or
+
+```bash
+$ npm -g i generate-structure
+```
+
+and run
+
+```bash
+$ generate-structure -t [path/to/template.html] [name]
+```
+
+
 | input | output |
 | - | - |
 | ![Input](docs/img/input.png) | ![Input](docs/img/output.png) |
-
-
 
 ## Creating Template
 
