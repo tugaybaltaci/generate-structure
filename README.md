@@ -6,13 +6,13 @@ Note: This repository is still work in progress.
 
 ## Install
 
-npm
+`npm`
 
 ```
 npm install generate-structure
 ```
 
-yarn
+`yarn`
 
 ```
 yarn add generate-structure
@@ -20,7 +20,11 @@ yarn add generate-structure
 
 ## Usage
 
-First you need to create template file. You can find instructions below.
+There is several ways to use structure generator.
+
+#### 1. Javascript (NodeJS)
+
+Javascript way is allow you to change options like `variableTemplate` or initial variables.
 
 ```js
 const GenerateStructure = require('generate-structure');
@@ -35,6 +39,22 @@ const generator = new GenerateStructure("test", "example-templates/test.html", {
 });
 
 generator.run();
+```
+
+#### 2. CLI
+
+If you don't need to change options then you can use CLI tools.
+
+`npx` (you don't need to install)
+
+```bash
+$ npx generate-structure [name] -t [templatePath]
+```
+
+`yarn` (you should install first)
+
+```bash
+$ yarn generate-structure [name] -t [templatePath]
 ```
 
 | input | output |
