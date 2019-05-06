@@ -13,13 +13,13 @@ You can create any code template in any language. You just need to have NodeJS.
 
 ## Install
 
-via npm
+via `npm`
 
 ```
 npm install generate-structure
 ```
 
-via yarn
+via `yarn`
 
 ```
 yarn add generate-structure
@@ -72,7 +72,7 @@ via `package.json` scripts
   }
 ```
 
-This will allow you to use command like `yarn generate:component component-name` to create template. If you installed this tool in your project, use `yarn` or `npm` instead of `npx`.
+This will allows you to use command like `yarn generate:component component-name` to create template.
 
 #### Using global
 
