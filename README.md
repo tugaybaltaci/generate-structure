@@ -117,7 +117,7 @@ Either `file` tag accept single attribute which is `name`.  `name` attribute def
 
 `StructureGenerator` has a simple API that you can create or modify variables.
 
-`StructureGenerator` object has 3 properties.
+`StructureGenerator` object has 3 properties;
 
 | variable | description |
 |-|-|
