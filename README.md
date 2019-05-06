@@ -5,7 +5,7 @@
 
 # Structure Generator
 
-Structure generator let’s you create multiple code templates/structures to use continuously in your projects.
+Structure generator lets you create multiple code templates/structures to use continuously in your projects.
 
 You can create any code template in any language. You just need to have NodeJS.
 
@@ -152,7 +152,7 @@ It is `out` attribute which defines root folder of structure.
 
 ### Script
 
-`StructureGenerator` has a simple API that let's you create or modify variables with javascript in `script` tag.
+`StructureGenerator` has a simple API that lets you create or modify variables with javascript in `script` tag.
 
 **Note**: `type` attribute of `script` tag should be `gs/javascript` to work. Otherwise your scripts don't execute.
 
