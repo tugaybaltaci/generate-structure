@@ -167,7 +167,6 @@ It is `out` attribute which is define root folder of structure.
 
 ```html
   <script type="gs/javascript">
-    // You can reach `StructureGenerator` object in that `script` tag and pass new variables into templates.
     // These variables can use in everywhere of template including filename.
 
     const {name, getVariable, setVariable} = StructureGenerator;
