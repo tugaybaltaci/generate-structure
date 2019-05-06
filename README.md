@@ -5,7 +5,7 @@
 
 # Structure Generator
 
-Structure generator helps you to create multiple code templates/structures that using continuously in your projects.
+Structure generator let’s you create multiple code templates/structures to use continuously in your projects.
 
 You can create any code template in any language. You just need to have NodeJS.
 
@@ -27,11 +27,11 @@ yarn add generate-structure
 
 ## Usage
 
-There is several ways to use structure generator.
+There are several ways to use structure generator.
 
 ### 1. Javascript (NodeJS)
 
-Javascript way is allow you to change options like `variableTemplate` or initial variables.
+Javascript way is allows you to change options like `variableTemplate` or initial variables.
 
 ```js
 const GenerateStructure = require('generate-structure');
@@ -52,19 +52,19 @@ generator.run();
 
 If you don't need to change options then you can use CLI tools.
 
-#### `npx` (you don't need to install)
+via `npx`
 
 ```bash
 $ npx generate-structure [name] -t [templatePath]
 ```
 
-#### `yarn` (you should install first)
+via `yarn`
 
 ```bash
 $ yarn generate-structure [name] -t [templatePath]
 ```
 
-#### `package.json` scripts
+via `package.json` scripts
 
 ```json
   "scripts": {
@@ -109,7 +109,7 @@ Writing template is very simple. You have 3 tags to create a template.
 
 ### Structure
 
-`structure` tag accept single attribute for now.
+`structure` tag accepts single attribute for now.
 It is `out` attribute which is define root folder of structure. 
 
 ```html
@@ -120,7 +120,8 @@ It is `out` attribute which is define root folder of structure.
 
 ### File
 
-Either `file` tag accept single attribute which is `name`.  `name` attribute defines file name and you can use variables in.
+`file` tag accepts single attribute which is `name`.
+`name` attribute defines file name and you can use variables in.
 
 ```html
   <file name="%name%.js">
@@ -151,9 +152,9 @@ Either `file` tag accept single attribute which is `name`.  `name` attribute def
 
 ### Script
 
-`StructureGenerator` has a simple API that you can create or modify variables with javascript in `script` tag.
+`StructureGenerator` has a simple API that let's you create or modify variables with javascript in `script` tag.
 
-**Note**: `type` attribute of `script` tag should be `gs/javascript` to work. Otherwise your scripts doesn't execute.
+**Note**: `type` attribute of `script` tag should be `gs/javascript` to work. Otherwise your scripts don't execute.
 
 `StructureGenerator` object has 3 properties;
 
