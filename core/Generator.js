@@ -65,7 +65,7 @@ class Generator {
       });
   }
 
-  async evaluateScript(code = "") {
+  evaluateScript(code = "") {
     const GenerateStructure = {
       name: this.variables.name,
       getVariable: name => this.variables[name],
