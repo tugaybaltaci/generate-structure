@@ -117,8 +117,6 @@ Either `file` tag accept single attribute which is `name`.  `name` attribute def
 
 `StructureGenerator` has a simple API that you can create or modify variables.
 
-Scripts are executed before creating files. It executes once and set all variables instead of executing for each file.
-
 `StructureGenerator` object has 3 properties.
 
 | variable | description |
