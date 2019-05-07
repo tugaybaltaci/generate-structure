@@ -141,7 +141,6 @@ It is `out` attribute which defines root folder of structure.
 </gs:file>
 
 <gs:file name="%name%.html">
-  <!-- This is an html file. I hope that will be included in output. -->
   <div class="%name%Class" onload="%name%Func();">
     <h1>Hello world.</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab mollitia quis voluptatum molestiae, animi molestias aut. Cum dignissimos maxime minima tempora. Asperiores dolor ipsam modi aliquid ea nobis blanditiis sint?</p>
