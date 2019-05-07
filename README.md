@@ -156,6 +156,8 @@ It is `out` attribute which defines root folder of structure.
 
 `GenerateStructure` has a simple API that lets you create or modify variables with javascript in `gs:script` tag.
 
+(This script executes in node vm sandbox. You can only use `GenerateStructure` and `console`)
+
 `GenerateStructure` object has 3 properties;
 
 | variable | description |
