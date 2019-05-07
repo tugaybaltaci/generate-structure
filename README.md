@@ -154,9 +154,9 @@ It is `out` attribute which defines root folder of structure.
 
 ### Script
 
-`StructureGenerator` has a simple API that lets you create or modify variables with javascript in `gs:script` tag.
+`GenerateStructure` has a simple API that lets you create or modify variables with javascript in `gs:script` tag.
 
-`StructureGenerator` object has 3 properties;
+`GenerateStructure` object has 3 properties;
 
 | variable | description |
 |-|-|
@@ -168,7 +168,7 @@ It is `out` attribute which defines root folder of structure.
 <gs:script>
   // These variables can use in everywhere of template including filename.
 
-  const {name, getVariable, setVariable} = StructureGenerator;
+  const {name, getVariable, setVariable} = GenerateStructure;
   const capName = name.split('-').map(x => x.charAt(0).toUpperCase() + x.slice(1)).join('');
 
   // Set new variable named `capName`
