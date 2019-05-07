@@ -42,20 +42,20 @@ class Generator {
 
     const template = new Parser(this.template, true);
 
-    this.files = template.root.files;
+    this.files = template.structure.files;
 
-    this.scripts = template.root.scripts.map(item => {
+    this.scripts = template.structure.scripts.map(item => {
       this.evaluateScript(item.content);
       return item;
     });
 
     this.outputDirectory = this.applyVariables(
-      template.root.structure.attributes.out
+      template.structure.root.attributes.out
     );
 
     if (!this.outputDirectory) this.outputDirectory = ".";
 
-    this.files = template.root.files
+    this.files = template.structure.files
       .filter(item => !!item.attributes.name)
       .map(item => {
         const content = this.applyVariables(item.content);

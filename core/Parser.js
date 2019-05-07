@@ -1,51 +1,45 @@
 class Parser {
   constructor(content, autorun = false) {
     this.content = content;
-    this.root = {};
+    this.structure = {};
 
     if (autorun) this.buildDOM();
   }
 
   buildDOM() {
     const match = this.content.match(
-      /<\/?(file|structure|script)((\s+\w+(\s*=\s*(?:".*?"|'.*?'|[\^'">\s]+))?)+\s*|\s*)\/?>/g
+      /<\/?gs:(root|file|script)((\s+\w+(\s*=\s*(?:".*?"|'.*?'|[\^'">\s]+))?)+\s*|\s*)\/?>/g
     );
 
-    const root = {
-      structure: {},
+    const structure = {
+      root: {},
       files: [],
       scripts: []
     };
 
     match.forEach(tag => {
       if (this.isOpenTag(tag)) {
-        const tagName = this.parseTagName(tag);
+        const tagName = this.parseTagName(tag).substring(3);
+
         const tagObj = {
           attributes: this.parseTagAttributes(tag),
           content: this.parseTagContent(tag)
         };
 
-        if (tagName === "structure") {
-          tagObj.content = root;
-          root.structure = tagObj;
+        if (tagName === "root") {
+          tagObj.content = structure;
+          structure.root = tagObj;
         }
         if (tagName === "file") {
-          root.files.push(tagObj);
+          structure.files.push(tagObj);
         }
         if (tagName === "script") {
-          if (
-            tagObj.attributes.type &&
-            tagObj.attributes.type === "gs/javascript"
-          ) {
-            root.scripts.push(tagObj);
-          }
+          structure.scripts.push(tagObj);
         }
       }
     });
 
-    this.root = root;
-
-    return root;
+    this.structure = structure;
   }
 
   isOpenTag(tag) {

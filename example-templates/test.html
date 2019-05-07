@@ -1,17 +1,17 @@
-<structure out="test">
-  <file name="%name%.js">
+<gs:root out="test">
+  <gs:file name="%name%.js">
     function %name%Func() {
       return "test ok"
     }
-  </file>
+  </gs:file>
 
-  <file name="%name%.css">
+  <gs:file name="%name%.css">
     .%capName% {
       /* your css */
     }
-  </file>
+  </gs:file>
 
-  <file name="%name%.html">
+  <gs:file name="%name%.html">
     <div class="%name%Class" onload="%name%Func();">
       <h1>Hello world. This is an html file that includes test content.</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab mollitia quis voluptatum molestiae, animi molestias aut. Cum dignissimos maxime minima tempora. Asperiores dolor ipsam modi aliquid ea nobis blanditiis sint?</p>
@@ -27,9 +27,9 @@
         console.log('hi kid');
       })
     </script>
-  </file>
+  </gs:file>
 
-  <file name="README.md">
+  <gs:file name="README.md">
     ## Read Me
 
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, culpa beatae eius porro voluptatibus illo. Alias, minima quaerat repellat, qui doloribus non, tenetur in deserunt inventore itaque et sapiente a.
@@ -38,9 +38,9 @@
     ---
 
     Test here
-  </file>
+  </gs:file>
 
-  <file name="%capName%.ts">
+  <gs:file name="%capName%.ts">
     import React from 'react';
 
     const %capName%Component = () => {
@@ -50,14 +50,14 @@
     }
 
     export default %capName%Component;
-  </file>
+  </gs:file>
 
-  <script type="gs/javascript">
+  <gs:script>
     const { name, getVariable, setVariable } = GenerateStructure;
     const capName = name.split('-').map(x => x.charAt(0).toUpperCase() + x.slice(1)).join('');
 
     // Now you can use this variable in your
     // templates or filenames.
     setVariable('capName', capName);
-  </script>
-</structure>
+  </gs:script>
+</gs:root>
