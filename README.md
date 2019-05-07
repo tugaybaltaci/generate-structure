@@ -96,9 +96,9 @@ $ generate-structure -t [path/to/template.html] [name]
 
 Writing template is very simple. You have 3 tags to create a template.
 
-* `structure`
-* `file`
-* `script`
+* `gs:root`
+* `gs:file`
+* `gs:script`
 
 ### What will happend?
 
@@ -107,54 +107,55 @@ Writing template is very simple. You have 3 tags to create a template.
 | ![Input](docs/img/input.png) | ![Input](docs/img/output.png) |
 
 
-### Structure
+### Root
 
-`structure` tag accepts single attribute for now.
+`gs:root` tag accepts single attribute for now.
 It is `out` attribute which defines root folder of structure. 
 
 ```html
-<structure out="test/%name%-component">
-  ... files, scripts
-</structure>
+<gs:root out="test/%name%-folder">
+  <gs:file name="..."></gs:file>
+  <gs:file name="..."></gs:file>
+  <gs:file name="..."></gs:file>
+  <gs:script></gs:script>
+</gs:root>
 ```
 
 ### File
 
-`file` tag accepts single attribute which is `name`.
+`gs:file` tag accepts single attribute which is `name`.
 `name` attribute defines file name and you can use variables in.
 
 ```html
-  <file name="%name%.js">
-    function %name%Func() {
-      return "test ok"
-    }
-  </file>
+<gs:file name="%name%.js">
+  function %name%Func() {
+    return "test ok"
+  }
+</gs:file>
 
-  <file name="%name%.css">
-    /* This is a css file */
-    .%name%Class {
-      /* your css */
-    }
-  </file>
+<gs:file name="%name%.css">
+  /* This is a css file */
+  .%name%Class {
+    /* your css */
+  }
+</gs:file>
 
-  <file name="%name%.html">
-    <!-- This is an html file. I hope that will be included in output. -->
-    <div class="%name%Class" onload="%name%Func();">
-      <h1>Hello world.</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab mollitia quis voluptatum molestiae, animi molestias aut. Cum dignissimos maxime minima tempora. Asperiores dolor ipsam modi aliquid ea nobis blanditiis sint?</p>
-      <img src="%name%.png" alt="%name%">
-      <p>
-        Eius excepturi itaque distinctio explicabo necessitatibus nemo impedit dicta amet, doloremque provident adipisci delectus porro eligendi architecto laudantium enim officiis? Natus quae ducimus dolores necessitatibus excepturi quam asperiores saepe odit?
-      </p>
-    </div>
-  </file>
+<gs:file name="%name%.html">
+  <!-- This is an html file. I hope that will be included in output. -->
+  <div class="%name%Class" onload="%name%Func();">
+    <h1>Hello world.</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab mollitia quis voluptatum molestiae, animi molestias aut. Cum dignissimos maxime minima tempora. Asperiores dolor ipsam modi aliquid ea nobis blanditiis sint?</p>
+    <img src="%name%.png" alt="%name%">
+    <p>
+      Eius excepturi itaque distinctio explicabo necessitatibus nemo impedit dicta amet, doloremque provident adipisci delectus porro eligendi architecto laudantium enim officiis? Natus quae ducimus dolores necessitatibus excepturi quam asperiores saepe odit?
+    </p>
+  </div>
+</gs:file>
 ```
 
 ### Script
 
-`StructureGenerator` has a simple API that lets you create or modify variables with javascript in `script` tag.
-
-**Note**: `type` attribute of `script` tag should be `gs/javascript` to work. Otherwise your scripts don't execute.
+`StructureGenerator` has a simple API that lets you create or modify variables with javascript in `gs:script` tag.
 
 `StructureGenerator` object has 3 properties;
 
@@ -164,17 +165,16 @@ It is `out` attribute which defines root folder of structure.
 | `getVariable` | Brings the variable by given name
 | `setVariable` | Defines a variable according to given key and value
 
-
 ```html
-  <script type="gs/javascript">
-    // These variables can use in everywhere of template including filename.
+<gs:script>
+  // These variables can use in everywhere of template including filename.
 
-    const {name, getVariable, setVariable} = StructureGenerator;
-    const capName = name.split('-').map(x => x.charAt(0).toUpperCase() + x.slice(1)).join('');
+  const {name, getVariable, setVariable} = StructureGenerator;
+  const capName = name.split('-').map(x => x.charAt(0).toUpperCase() + x.slice(1)).join('');
 
-    // Set new variable named `capName`
-    setVariable('capName', capName);
-  </script>
+  // Set new variable named `capName`
+  setVariable('capName', capName);
+</gs:script>
 ```
 
 ## Dependencies
