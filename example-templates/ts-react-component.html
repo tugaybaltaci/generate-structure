@@ -1,11 +1,11 @@
-<structure out="src/components/%capName%">
-  <file name="c-%name%.scss">
+<gs:root out="src/components/%capName%">
+  <gs:file name="c-%name%.scss">
     .c-%name% {
       
     }
-  </file>
+  </gs:file>
 
-  <file name="%capName%.ts">
+  <gs:file name="%capName%.ts">
     import React, { FunctionComponent, ReactNode } from 'react';
     import cx from 'classnames';
 
@@ -21,20 +21,20 @@
     );
 
     export default %capName%;
-  </file>
+  </gs:file>
 
-  <file name="index.ts">
+  <gs:file name="index.ts">
     import %capName% from './%capName%';
 
     export default %capName%;
-  </file>
+  </gs:file>
 
-  <script type="gs/javascript">
+  <gs:script>
     const { name, getVariable, setVariable } = GenerateStructure;
     const capName = name.split('-').map(x => x.charAt(0).toUpperCase() + x.slice(1)).join('');
 
     // Now you can use this variable in your
     // templates or filenames.
     setVariable('capName', capName);
-  </script>
-</structure>
+  </gs:script>
+</gs:root>
